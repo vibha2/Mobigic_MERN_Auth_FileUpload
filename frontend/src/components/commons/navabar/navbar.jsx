@@ -2,13 +2,13 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-
+import './navbar.css'
 function NavbarComponent() {
   return (
     <div className="navbar-container">
-      <Navbar collapseOnSelect expand="lg">
+      <Navbar collapseOnSelect expand="md">
         <Container>
-          <Navbar.Brand href="/">CRYPTOS</Navbar.Brand>
+          <a href="/" className="logo-name">CRYPTOS</a>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -27,10 +27,10 @@ function NavbarComponent() {
             </NavDropdown> */}
             </Nav>
             <Nav>
-              <Nav.Link as={Link} to="/login">
+              <Nav.Link as={Link} to="/login" className="text-light">
                 Login
               </Nav.Link>
-              <Nav.Link eventKey={2} as={Link} to="/sign-up">
+              <Nav.Link eventKey={2} as={Link} to="/sign-up" className="text-light">
                 Sign up
               </Nav.Link>
             </Nav>
