@@ -1,0 +1,29 @@
+.verify-container{
+    max-width: 400px;
+        margin: 2em auto;
+        padding: 20px;
+        border: 1px solid #b4b1b1;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(143, 140, 140, 0.741);
+        background-color: rgb(43, 41, 41);
+        color: white;
+}
+
+.verify-heading{
+    font-size: 28px;
+}
+
+.verify-btn {
+    background-color: #2e612f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.verify-btn:hover {
+    background-color: #45a049;
+}
