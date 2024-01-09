@@ -40,8 +40,19 @@ input {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+    width: 100%;
 }
 
 .register-btn:hover {
     background-color: #45a049;
 }
+
+.login-btn-container {
+    display: flex;
+    height: 50px;
+}
+
+.send-otp-btn-container{
+    display: flex;
+}
+

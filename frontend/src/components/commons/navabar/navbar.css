@@ -12,3 +12,36 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+.icon-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.logout-menu {
+    position: absolute;
+    top: 40px;
+    /* Adjust the positioning as needed */
+    left: 10px;
+    background-color: #7a7777;
+    border: 1px solid #ccc;
+    padding: 2px 8px 2px 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.logout-menu button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.initials-container{
+    padding-left: 12px;
+    padding-top: 11px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    box-shadow: 0 0px 8px rgba(119, 117, 117, 0.744);
+}

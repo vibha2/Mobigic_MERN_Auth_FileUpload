@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './register-user.css'; // Import your custom stylesheet
 import  AuthService  from '../../../services/authService';
 import { useNavigate } from "react-router-dom";
+import { MutatingDots } from "react-loader-spinner";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,8 @@ const Register = () => {
   });
 
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,12 +24,16 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log("User =>", formData);
     AuthService.signUp(formData).then((res) => {
       console.log("user created =>", res);
+      setLoading(false);
       navigate(`/email-verify/${res.data.user._id}`);
     },(err) =>{
       console.log("Err =>", err);
+      setError(err.response.data.message);
+      setLoading(false);
     })
     // Add your registration logic here
   };
@@ -94,8 +101,42 @@ const Register = () => {
             required
           />
         </div>
-
-        <button className='register-btn' type="submit">Register</button>
+        {error ? (
+          <div className="error-container">{error}</div>
+        ) : (
+          <></>
+        )}
+        <div className="login-btn-container">
+          {isLoading ? (
+            <>
+              <button className="register-btn">
+                Signing up...
+              </button>
+              <div className="loader">
+                <MutatingDots
+                  visible={true}
+                  height="100"
+                  width="100"
+                  color="#4fa94d"
+                  secondaryColor="#4fa94d"
+                  radius="12.5"
+                  ariaLabel="mutating-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <button className='register-btn' type="submit">Register</button>
+            </>
+          )}
+        </div>
+        
+          <hr />
+        <div>
+          Already an existing member?<p className="sign-up-cta" onClick={() => { navigate(`/login`) }}>Login</p>
+        </div>
       </form>
     </div>
   );

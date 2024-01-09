@@ -27,3 +27,7 @@
 .verify-btn:hover {
     background-color: #45a049;
 }
+
+.send-otp-btn-container{
+    height: 70px;
+}
